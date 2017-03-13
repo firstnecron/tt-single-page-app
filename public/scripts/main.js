@@ -1,3 +1,3 @@
-var app = angular.module('app', [
-	ngRoute
+const app = angular.module('app', [
+	'ngRoute'
 ]);
