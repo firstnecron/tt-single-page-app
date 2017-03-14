@@ -24,6 +24,11 @@
 			};
 
 			$scope.deleteRecipe = function (recipe) {
+				const confirmed = confirm(`Are you sure you want to delete recipe "${recipe.name}"?`);
+				if (!confirmed) {
+					return;
+				}
+
 				DataService.removeRecipe(recipe._id, error => {
 					if (error) {
 						return console.log(error);
