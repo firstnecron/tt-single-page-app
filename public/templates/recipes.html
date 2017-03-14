@@ -19,7 +19,7 @@
 </div>
 
 <div class="grid-100 row addHover" ng-show="recipes" ng-repeat="recipe in recipes">
-  <a ng-click="editRecipe(recipe._id)">
+  <a ng-click="editRecipe(recipe)">
     <div class="grid-70">
       <p>
         <!-- Display information about the recipe. -->
@@ -31,8 +31,8 @@
     <div class="grid-30">
       <div class="flush-right">
         <p>
-          <a ng-click="editRecipe(recipe._id)"> <img src="images/edit.svg" height="12px"> Edit </a>
-          <a class="no-action-link" ng-click="deleteRecipe(recipe._id)"> <img src="images/delete.svg" height="12px"> Delete </a>
+          <a ng-click="editRecipe(recipe)"> <img src="images/edit.svg" height="12px"> Edit </a>
+          <a class="no-action-link" ng-click="deleteRecipe(recipe)"> <img src="images/delete.svg" height="12px"> Delete </a>
         </p>
       </div>
     </div>

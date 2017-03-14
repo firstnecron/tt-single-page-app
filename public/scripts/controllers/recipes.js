@@ -17,14 +17,14 @@
 				$location.path('/add');
 			};
 
-			$scope.editRecipe = function (id) {
-				$location.path(`/edit/${id}`);
+			$scope.editRecipe = function (recipe) {
+				$location.path(`/edit/${recipe._id}`);
 			};
 
-			$scope.deleteRecipe = function (id) {
-				DataService.removeRecipe(id, () => {
+			$scope.deleteRecipe = function (recipe) {
+				DataService.removeRecipe(recipe._id, () => {
 					for (let i = 0; i < $scope.recipes.length; i++) {
-						if ($scope.recipes[i]._id === id) {
+						if ($scope.recipes[i]._id === recipe._id) {
 							$scope.recipes.splice(i, 1);
 						}
 					}
