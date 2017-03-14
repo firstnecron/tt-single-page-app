@@ -6,7 +6,11 @@
 			let editing = false;
 
 			if ($location.path().startsWith('/edit/')) {
-				DataService.getRecipe($location.path().substr(6), recipe => {
+				DataService.getRecipe($location.path().substr(6), (error, recipe) => {
+					if (error) {
+						return console.log(error);
+					}
+
 					$scope.recipe = recipe;
 					editing = true;
 				});
@@ -14,11 +18,18 @@
 				$scope.recipe = {};
 			}
 
-			DataService.getCategories(categories => {
+			DataService.getCategories((error, categories) => {
+				if (error) {
+					return console.log(error);
+				}
+
 				$scope.categories = categories;
 			});
 
-			DataService.getFoodItems(data => {
+			DataService.getFoodItems((error, data) => {
+				if (error) {
+					return console.log(error);
+				}
 				$scope.foodItems = data;
 			});
 
