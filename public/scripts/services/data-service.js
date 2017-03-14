@@ -34,7 +34,6 @@
 			};
 
 			this.getRecipe = function (id, callback) {
-				console.log(id);
 				$http.get(`${baseUrl}/api/recipes/${id}`)
 					.then(response => {
 						callback(response.data);
@@ -43,15 +42,19 @@
 
 			this.addRecipe = function (recipeData, callback) {
 				$http.post(`${baseUrl}/api/recipes`, recipeData)
-					.then(response => {
-						callback(response);
+					.then(successResponse => {
+						callback(null, successResponse.data);
+					}, errorResponse => {
+						callback(errorResponse.data, null);
 					});
 			};
 
 			this.updateRecipe = function (id, recipeData, callback) {
 				$http.put(`${baseUrl}/api/recipes/${id}`, recipeData)
-					.then(response => {
-						callback(response.data);
+					.then(successResponse => {
+						callback(null, successResponse.data);
+					}, errorResponse => {
+						callback(errorResponse.data, null);
 					});
 			};
 
