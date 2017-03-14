@@ -33,8 +33,9 @@
 					});
 			};
 
-			this.getRecipe = function (id, callback)  {
-				$http.get(`${baseUrl}/api/recipes/{id}`)
+			this.getRecipe = function (id, callback) {
+				console.log(id);
+				$http.get(`${baseUrl}/api/recipes/${id}`)
 					.then(response => {
 						callback(response.data);
 					});
