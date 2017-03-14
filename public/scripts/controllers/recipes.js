@@ -38,8 +38,11 @@
 			};
 
 			$scope.onCategoryChange = function () {
-				// TODO
-				console.log($scope.selectedCategory);
+				if ($scope.selectedCategory) {
+					DataService.getRecipesForCategory($scope.selectedCategory.name, handleRecipeResponse);
+				} else {
+					DataService.getRecipes(handleRecipeResponse);
+				}
 			};
 
 			function handleRecipeResponse(error, recipes) {
